@@ -1,0 +1,42 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // Flutter Gradle Plugin must be applied after Android and Kotlin Gradle plugins
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.photo_gallery_final"
+    compileSdk = 34 // Replace with a stable SDK version, e.g., 33
+
+    ndkVersion = "25.1.8937393" // Optional: Specify NDK version explicitly if needed
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17 // Adjust to 11 or 17 if required
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17" // Set JVM target to match the compile options
+    }
+
+    defaultConfig {
+        applicationId = "com.example.photo_gallery_final"
+        minSdk = 21 // Adjust to your minimum SDK requirement (e.g., 21)
+        targetSdk = 33 // Replace with the appropriate target SDK version
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            // Configure release signing properly or use debug keys temporarily
+            signingConfig = signingConfigs.debug
+            // Optional: Consider enabling proguard or optimization settings as needed
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
